@@ -191,6 +191,23 @@
    - `google-services.json` dosyasını ekleyin
    - Authentication ve Firestore'u aktifleştirin
 
+## 📖 Dokümantasyon
+
+### 🎯 Oyun Denge Sistemi
+Oyunun denge sistemi ve mekanikler hakkında detaylı bilgi için:
+- **[Oyun İçi Denge Sistemi](assets/documents/oyun_ici_denge_sistemi.pdf)** - Kapsamlı denge dokümantasyonu
+- **[Teknik Dokümantasyon](assets/documents/)** - Tüm sistem belgeleri
+
+**Denge Sistemi İçeriği:**
+- 📈 Oyuncu ilerleme dengesi
+- 🎮 Deneyim puanı dağılımı  
+- ⚡ Karakter stat skalası
+- 🛡️ Ekipman denge mekanikleri
+- ⚔️ Savaş sistemi dengesi
+- 💰 Ekonomik sistem dengesi
+- 🗺️ Seviye tasarım kriterleri
+- 🥊 PvP denge mekanikleri
+
 ## 🤝 Katkıda Bulunma
 
 1. Bu repository'yi fork edin

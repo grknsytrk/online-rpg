@@ -206,21 +206,39 @@
 
 <div align="center">
 
-**Ana Oyun Ekranı**
+**🏞️ Ana Oyun Ekranı**
 ![Ana Oyun Ekranı](assets/images/gameplay-main.png)
+*Multiplayer online dünyada oyuncular arası etkileşim*
 
-**Envanter Sistemi**
+**🎒 Envanter Sistemi**
 ![Envanter Sistemi](assets/images/inventory-system.png)
+*Drag & drop destekli modern envanter arayüzü*
 
-**Shop Sistemi**
+**🛒 Shop & Ticaret Sistemi**
 ![Shop Sistemi](assets/images/shop-system.png)
+*NPC tüccarlar ile alım-satım mekanikleri*
 
-**Multiplayer Oyun**
+**⚔️ Düşman Savaş Sistemi**
+![Düşman Savaşı](assets/images/combat-system.png)
+*AI düşmanlar ile real-time savaş*
+
+**🌐 Multiplayer Oynanış**
 ![Multiplayer](assets/images/multiplayer-gameplay.png)
+*Photon PUN2 ile çoklu oyuncu deneyimi*
+
+**📊 Karakter İstatistikleri**
+![Karakter Stats](assets/images/player-stats.png)
+*Seviye, XP ve stat yönetim sistemi*
 
 </div>
 
-> **Not:** Screenshot'ları eklemek için `assets/images/` klasörüne görsellerinizi koyun ve yukarıdaki dosya isimlerini kullanın.
+> **📝 Not:** Screenshot'ları eklemek için aşağıdaki dosyaları `assets/images/` klasörüne koyun:
+> - `gameplay-main.png` - Genel oyun görünüşü
+> - `inventory-system.png` - Envanter sistemi açık hali
+> - `shop-system.png` - Tüccar dükkanı ekranı
+> - `combat-system.png` - Düşman ile savaş anı
+> - `multiplayer-gameplay.png` - Birden fazla oyuncu ekranda
+> - `player-stats.png` - Karakter bilgileri paneli
 
 ## 📝 Değişiklik Günlüğü
 

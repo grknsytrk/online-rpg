@@ -202,7 +202,25 @@
 
 ## 📸 Screenshots
 
-*Yakında eklenecek...*
+### 🎮 Oyun İçi Görüntüler
+
+<div align="center">
+
+**Ana Oyun Ekranı**
+![Ana Oyun Ekranı](assets/images/gameplay-main.png)
+
+**Envanter Sistemi**
+![Envanter Sistemi](assets/images/inventory-system.png)
+
+**Shop Sistemi**
+![Shop Sistemi](assets/images/shop-system.png)
+
+**Multiplayer Oyun**
+![Multiplayer](assets/images/multiplayer-gameplay.png)
+
+</div>
+
+> **Not:** Screenshot'ları eklemek için `assets/images/` klasörüne görsellerinizi koyun ve yukarıdaki dosya isimlerini kullanın.
 
 ## 📝 Değişiklik Günlüğü
 

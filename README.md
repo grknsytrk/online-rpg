@@ -219,7 +219,15 @@
 
 ## 📄 Lisans
 
-Bu proje **eğitim amaçlı** geliştirilmiştir. Ticari kullanım için izin alınmalıdır.
+Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakınız.
+
+**Özet:**
+- ✅ Ticari kullanım
+- ✅ Değiştirme
+- ✅ Dağıtım
+- ✅ Özel kullanım
+- ❌ Sorumluluk
+- ❌ Garanti
 
 ---
 

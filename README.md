@@ -13,35 +13,35 @@
 ## ✨ Özellikler
 
 🕹️ **Gelişmiş Oyuncu Sistemi**
-- Player controller ve hareket kontrolleri (PlayerController.cs)
-- Sağlık ve can yönetimi (PlayerHealth.cs, PlayerHealthUI.cs)
-- Oyuncu istatistikleri ve seviye sistemi (PlayerStats.cs)
-- Emote sistemi ve sosyal etkileşimler (PlayerEmoteSystem.cs)
-- Karakter görünümü ve isim etiketleri (PlayerNameTag.cs)
+- Player controller ve hareket kontrolleri
+- Sağlık ve can yönetimi
+- Oyuncu istatistikleri ve seviye sistemi
+- Emote sistemi ve sosyal etkileşimler
+- Karakter görünümü ve isim etiketleri
 
 ⚔️ **Akıllı Düşman Sistemi**
-- Gelişmiş AI ve pathfinding teknolojisi (EnemyAI.cs)
-- Sağlık sistemi ve hasarlanma (EnemyHealth.cs) 
-- Dinamik düşman isim etiketleri (EnemyNameTag.cs)
+- Gelişmiş AI ve pathfinding teknolojisi
+- Sağlık sistemi ve hasarlanma
+- Dinamik düşman isim etiketleri
 - Elite düşman sistemi ve özel görsel efektler
-- Loot sistemi ve drop mekanikleri (LootItem.cs)
+- Loot sistemi ve drop mekanikleri
 
 🎒 **Kapsamlı Envanter Sistemi**
-- Tam özellikli envanter yönetimi (InventoryManager.cs)
-- Drag & drop interface (InventorySlotUI.cs)
-- Ekipman sistemi ve otomatik stat bonusları (EquipmentManager.cs)
-- Item veritabanı ve veri yönetimi (ItemDatabase)
+- Tam özellikli envanter yönetimi
+- Drag & drop interface
+- Ekipman sistemi ve otomatik stat bonusları
+- Item veritabanı ve veri yönetimi
 - Firebase ile bulut senkronizasyonu
 
 🛒 **Ticaret ve Shop Sistemi**
-- Tüccar NPC'leri ve etkileşim (Merchant.cs)
-- Gelişmiş shop UI (ShopUIManager.cs, ShopItemUI.cs)
-- Para birimi sistemi (CurrencyUtils.cs)
+- Tüccar NPC'leri ve etkileşim
+- Gelişmiş shop UI
+- Para birimi sistemi
 - Alım-satım mekanikleri
 
 🌐 **Multiplayer Alt Yapısı**
 - Photon PUN2 ile real-time multiplayer
-- Sunucu yönetimi (PhotonServerManager.cs)
+- Sunucu yönetimi
 - Oda yönetimi ve oyuncu senkronizasyonu
 - Network optimizasyonları ve RPC sistemleri
 
@@ -52,22 +52,22 @@
 - Oyuncu verilerinin otomatik kaydedilmesi
 
 🎨 **Gelişmiş UI Sistemi**
-- Ana UI yönetimi (UIManager.cs)
+- Ana UI yönetimi
 - Modern shop arayüzü
-- Chat sistemi (ChatManager.cs)
-- Feedback ve tooltip sistemleri (UIFeedbackManager)
+- Chat sistemi
+- Feedback ve tooltip sistemleri
 - Dinamik sağlık barları
 
 🎵 **Audio Yönetimi**
-- Ses efektleri kontrolü (AudioManager.cs)
-- SFX sistemleri (SFXManager, SFXNames.cs)
+- Ses efektleri kontrolü
+- SFX sistemleri
 - Dinamik ses yönetimi
 
 🧪 **Test ve Yardımcı Sistemler**
 - Test araçları ve debugging
-- Yardımcı sınıflar (Utils klasörü)
-- Main thread dispatcher (UnityMainThreadDispatcher.cs)
-- Mesaj renklendirme (MessageColorUtils.cs)
+- Yardımcı sınıflar
+- Main thread dispatcher
+- Mesaj renklendirme
 
 ## 📁 Detaylı Klasör Yapısı
 
@@ -191,61 +191,6 @@
 5. **🔧 Firebase konfigürasyonunu yapın**
    - `google-services.json` dosyasını ekleyin
    - Authentication ve Firestore'u aktifleştirin
-
-## 🎯 Kullanım
-
-### Temel Oyun Döngüsü
-```csharp
-// Oyuncu oluşturma
-var player = PhotonNetwork.Instantiate("Player", spawnPoint, Quaternion.identity);
-
-// Envanter yönetimi
-InventoryManager.Instance.AddItem(newItem);
-
-// Düşman spawn
-EnemySpawner.Instance.SpawnEnemy(enemyType, position);
-```
-
-### Kod Örnekleri
-
-#### Envanter Sistemi
-```csharp
-// Item ekleme
-InventoryItem newItem = new InventoryItem(itemData, quantity);
-bool success = InventoryManager.Instance.AddItem(newItem);
-
-// Item kaldırma
-InventoryManager.Instance.RemoveItem(slotIndex);
-
-// Para ekleme/çıkarma
-InventoryManager.Instance.TryAddCurrency(amount);
-InventoryManager.Instance.TryRemoveCurrency(amount);
-```
-
-#### Ekipman Sistemi
-```csharp
-// Ekipman giydirme
-bool equipped = EquipmentManager.Instance.EquipItem(item, slotType);
-
-// Ekipman çıkarma
-InventoryManager.Instance.UnequipItem(slotType);
-```
-
-#### Chat Sistemi
-```csharp
-// Mesaj gönderme
-ChatManager.Instance.SendMessage(message);
-
-// Sistem mesajı
-ChatManager.Instance.SendSystemMessage(message, messageType);
-```
-
-#### Ses Sistemi
-```csharp
-// Ses efekti çalma
-SFXManager.Instance?.PlaySound(SFXNames.LootPickup);
-AudioManager.Instance?.PlaySFX(soundClip);
-```
 
 ## 🤝 Katkıda Bulunma
 

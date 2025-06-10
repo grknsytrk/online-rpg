@@ -232,13 +232,7 @@
 
 </div>
 
-> **📝 Not:** Screenshot'ları eklemek için aşağıdaki dosyaları `assets/images/` klasörüne koyun:
-> - `gameplay-main.png` - Genel oyun görünüşü
-> - `inventory-system.png` - Envanter sistemi açık hali
-> - `shop-system.png` - Tüccar dükkanı ekranı
-> - `combat-system.png` - Düşman ile savaş anı
-> - `multiplayer-gameplay.png` - Birden fazla oyuncu ekranda
-> - `player-stats.png` - Karakter bilgileri paneli
+
 
 ## 📝 Değişiklik Günlüğü
 

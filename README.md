@@ -215,7 +215,7 @@
 ## 📞 İletişim
 
 - **GitHub**: [@grknsytrk](https://github.com/grknsytrk)
-- **Email**: [İletişim için GitHub üzerinden mesaj gönderin]
+- **Email**: oyungrkn@gmail.com
 
 ## 📄 Lisans
 

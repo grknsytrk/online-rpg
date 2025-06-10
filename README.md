@@ -184,7 +184,6 @@
    - Photon PUN2 (Multiplayer)
    - Firebase SDK
    - A* Pathfinding Project
-   - TextMeshPro
 
 4. **⚙️ Scene'leri ayarlayın ve prefab'ları bağlayın**
 

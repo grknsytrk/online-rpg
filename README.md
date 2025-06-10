@@ -7,63 +7,128 @@
   <img src="https://img.shields.io/badge/Firebase-Enabled-FFA000?style=for-the-badge&logo=firebase&logoColor=white" />
 </div>
 
-<p align="center">
-  Unity tabanlı OnlineRPG oyunumun script dosyalarını içeren repository
-</p>
 
 ---
 
 ## ✨ Özellikler
 
-🕹️ **Oyuncu Sistemi**
-- Player controller ve hareket kontrolleri
-- Sağlık sistemi ve karakter yönetimi
-- Skill ve yetenek sistemleri
+🕹️ **Gelişmiş Oyuncu Sistemi**
+- Player controller ve hareket kontrolleri (PlayerController.cs)
+- Sağlık ve can yönetimi (PlayerHealth.cs, PlayerHealthUI.cs)
+- Oyuncu istatistikleri ve seviye sistemi (PlayerStats.cs)
+- Emote sistemi ve sosyal etkileşimler (PlayerEmoteSystem.cs)
+- Karakter görünümü ve isim etiketleri (PlayerNameTag.cs)
 
-⚔️ **Düşman Sistemi**
-- Gelişmiş AI ve pathfinding
-- Loot sistemi ve drop mekanikleri
-- Çeşitli düşman türleri
+⚔️ **Akıllı Düşman Sistemi**
+- Gelişmiş AI ve pathfinding teknolojisi (EnemyAI.cs)
+- Sağlık sistemi ve hasarlanma (EnemyHealth.cs) 
+- Dinamik düşman isim etiketleri (EnemyNameTag.cs)
+- Elite düşman sistemi ve özel görsel efektler
+- Loot sistemi ve drop mekanikleri (LootItem.cs)
 
-🎒 **Envanter Sistemi**
-- Item yönetimi ve database entegrasyonu
-- Drag & drop interface
-- Ekipman ve kullanım itemleri
+🎒 **Kapsamlı Envanter Sistemi**
+- Tam özellikli envanter yönetimi (InventoryManager.cs)
+- Drag & drop interface (InventorySlotUI.cs)
+- Ekipman sistemi ve otomatik stat bonusları (EquipmentManager.cs)
+- Item veritabanı ve veri yönetimi (ItemDatabase)
+- Firebase ile bulut senkronizasyonu
 
-🌐 **Multiplayer Desteği**
+🛒 **Ticaret ve Shop Sistemi**
+- Tüccar NPC'leri ve etkileşim (Merchant.cs)
+- Gelişmiş shop UI (ShopUIManager.cs, ShopItemUI.cs)
+- Para birimi sistemi (CurrencyUtils.cs)
+- Alım-satım mekanikleri
+
+🌐 **Multiplayer Alt Yapısı**
 - Photon PUN2 ile real-time multiplayer
+- Sunucu yönetimi (PhotonServerManager.cs)
 - Oda yönetimi ve oyuncu senkronizasyonu
-- Network optimizasyonları
+- Network optimizasyonları ve RPC sistemleri
 
-🔥 **Firebase Entegrasyonu**
+🔥 **Firebase Cloud Sistemi**
 - Kullanıcı kimlik doğrulama
 - Cloud Firestore veri yönetimi
-- Real-time database
+- Real-time database senkronizasyonu
+- Oyuncu verilerinin otomatik kaydedilmesi
 
-🎨 **UI Sistemi**
+🎨 **Gelişmiş UI Sistemi**
+- Ana UI yönetimi (UIManager.cs)
 - Modern shop arayüzü
-- Chat sistemi
-- Feedback ve bildirim sistemleri
+- Chat sistemi (ChatManager.cs)
+- Feedback ve tooltip sistemleri (UIFeedbackManager)
+- Dinamik sağlık barları
 
 🎵 **Audio Yönetimi**
-- Ses efektleri kontrolü
-- Müzik sistemleri
-- Dynamic audio mixing
+- Ses efektleri kontrolü (AudioManager.cs)
+- SFX sistemleri (SFXManager, SFXNames.cs)
+- Dinamik ses yönetimi
 
-## 📁 Klasör Yapısı
+🧪 **Test ve Yardımcı Sistemler**
+- Test araçları ve debugging
+- Yardımcı sınıflar (Utils klasörü)
+- Main thread dispatcher (UnityMainThreadDispatcher.cs)
+- Mesaj renklendirme (MessageColorUtils.cs)
+
+## 📁 Detaylı Klasör Yapısı
 
 ```
 📦 Scripts
-├── 🎮 Player/          # Oyuncu kontrolü ve yetenekleri
-├── 👹 Enemy/           # Düşman AI ve davranışları
-├── ⚙️ Managers/        # Oyun yöneticisi scriptleri
-├── 🎒 Items/           # Item ve envanter sistemi
-├── 🖥️ UI/              # Kullanıcı arayüzü
-├── 🔧 Utils/           # Yardımcı araçlar ve utilities
-├── 🗣️ Chat/            # Chat sistemi
-├── 🌍 Environment/     # Çevre ve dünya objeleri
-├── 👥 NPCs/            # NPC sistemleri
-└── 🧪 Tests/           # Test scriptleri
+├── 🎮 Player/                   # Oyuncu Sistemleri
+│   ├── PlayerController.cs     # Ana oyuncu kontrolü ve hareket
+│   ├── PlayerHealth.cs         # Sağlık sistemi ve hasarlanma
+│   ├── PlayerStats.cs          # Seviye, XP ve stat yönetimi
+│   ├── PlayerNameTag.cs        # Oyuncu isim etiketi
+│   ├── Player Controls.cs      # Input sistemi
+│   └── Sword/                  # Kılıç sistemi
+│       ├── Sword.cs           # Kılıç kontrolü
+│       ├── SlashAnim.cs       # Saldırı animasyonu
+│       └── PlayerDamage.cs    # Hasar sistemi
+│
+├── 👹 Enemy/                   # Düşman Sistemleri
+│   ├── EnemyAI.cs             # Düşman yapay zekası
+│   ├── EnemyHealth.cs         # Düşman sağlık sistemi
+│   └── EnemyNameTag.cs        # Düşman isim etiketi
+│
+├── 👥 NPCs/                    # NPC Sistemleri
+│   └── Merchant.cs            # Tüccar NPC ve etkileşim
+│
+├── 🎒 Items/                   # Item ve Loot Sistemleri
+│   └── LootItem.cs            # Loot toplama mekanikleri
+│
+├── 📦 Scripts/                 # Ana Sistemler
+│   ├── Inventory/             # Envanter Alt Sistemi
+│   │   ├── InventoryManager.cs      # Envanter yönetimi
+│   │   └── InventorySlotUI.cs       # Slot UI kontrolü
+│   └── Managers/              # Oyun Yöneticileri
+│       ├── EquipmentManager.cs      # Ekipman sistemi
+│       ├── PhotonServerManager.cs   # Photon sunucu yönetimi
+│       ├── ChatManager.cs          # Chat sistemi
+│       └── SFXNames.cs             # Ses efekti isimleri
+│
+├── 🖥️ UI/                      # Kullanıcı Arayüzü
+│   ├── UIManager.cs           # Ana UI kontrolü
+│   ├── PlayerHealthUI.cs      # Sağlık bar UI
+│   ├── ShopUIManager.cs       # Shop arayüzü
+│   └── ShopItemUI.cs          # Shop item UI
+│
+├── 🔧 Utils/                   # Yardımcı Araçlar
+│   ├── UnityMainThreadDispatcher.cs  # Thread yönetimi
+│   ├── MessageColorUtils.cs          # Mesaj renklendirme
+│   ├── CurrencyUtils.cs              # Para birimi araçları
+│   └── CurrencyTestManager.cs        # Para test sistemi
+│
+├── 🧪 Tests/                   # Test Sistemleri
+│   └── [Test dosyaları]       # Debug ve test araçları
+│
+├── 🌍 Environment/             # Çevre Sistemleri
+│   └── [Çevre objeleri]       # Dünya etkileşim objeleri
+│
+├── 🔊 Audio/                   # Ses Sistemleri
+│   ├── AudioManager.cs        # Ana ses yöneticisi
+│   └── ShakyText.cs          # Titreşimli text efekti
+│
+└── 📱 MainMenu/               # Ana Menü
+    └── [Menü sistemleri]      # Ana menü ve UI
 ```
 
 ## 🛠️ Teknolojiler
@@ -139,6 +204,47 @@ InventoryManager.Instance.AddItem(newItem);
 
 // Düşman spawn
 EnemySpawner.Instance.SpawnEnemy(enemyType, position);
+```
+
+### Kod Örnekleri
+
+#### Envanter Sistemi
+```csharp
+// Item ekleme
+InventoryItem newItem = new InventoryItem(itemData, quantity);
+bool success = InventoryManager.Instance.AddItem(newItem);
+
+// Item kaldırma
+InventoryManager.Instance.RemoveItem(slotIndex);
+
+// Para ekleme/çıkarma
+InventoryManager.Instance.TryAddCurrency(amount);
+InventoryManager.Instance.TryRemoveCurrency(amount);
+```
+
+#### Ekipman Sistemi
+```csharp
+// Ekipman giydirme
+bool equipped = EquipmentManager.Instance.EquipItem(item, slotType);
+
+// Ekipman çıkarma
+InventoryManager.Instance.UnequipItem(slotType);
+```
+
+#### Chat Sistemi
+```csharp
+// Mesaj gönderme
+ChatManager.Instance.SendMessage(message);
+
+// Sistem mesajı
+ChatManager.Instance.SendSystemMessage(message, messageType);
+```
+
+#### Ses Sistemi
+```csharp
+// Ses efekti çalma
+SFXManager.Instance?.PlaySound(SFXNames.LootPickup);
+AudioManager.Instance?.PlaySFX(soundClip);
 ```
 
 ## 🤝 Katkıda Bulunma

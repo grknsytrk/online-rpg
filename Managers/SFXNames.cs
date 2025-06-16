@@ -10,9 +10,11 @@ public static class SFXNames
     public const string SwordSwing = "SwordSwing";
     public const string PlayerLevelUp = "PlayerLevelUp";
     public const string PlayerMilestoneLevelUp = "PlayerMilestoneLevelUp";
+    public const string PlayerDeath = "PlayerDeath";
 
     // Enemy Feedback
     public const string EnemyDamageTaken = "EnemyDamageTaken";
+    public const string EnemyDeath = "EnemyDeath";
 
     // Consumables
     public const string PotionConsume = "PotionConsume";

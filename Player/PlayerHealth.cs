@@ -361,6 +361,14 @@ public class PlayerHealth : MonoBehaviourPunCallbacks
         if (pv.IsMine)
         {
             lastDamageTime = Time.time; // Son hasar zamanını güncelle
+            
+            // Hasar alındığında healing efektini gizle
+            if (EffectManager.Instance != null)
+            {
+                EffectManager.Instance.HideHealingEffect();
+                Debug.Log("Hasar alındı, healing efekt ikonu gizlendi.");
+            }
+            
             // Eğer yenilenme korutini varsa durdur ve yeniden başlat
             if (manageRegenCoroutine != null)
             {
@@ -435,6 +443,12 @@ public class PlayerHealth : MonoBehaviourPunCallbacks
              Debug.LogError("Die: Main Collider referansı null!");
         }
         Debug.Log($"Player died! Killed by ViewID: {killerViewID}. Collider disabled.");
+
+        // Ölüm sesi çal
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlaySound(SFXNames.PlayerDeath);
+        }
 
         // Kılıcın mevcut durumunu kaydet
         wasSwordActiveBeforeDeath = swordObject != null && swordObject.activeSelf;
@@ -623,6 +637,13 @@ public class PlayerHealth : MonoBehaviourPunCallbacks
     {
         isInvincible = true;
         
+        // Yeniden doğma dokunulmazlığında shield efektini göster
+        if (applyTintColor && EffectManager.Instance != null)
+        {
+            EffectManager.Instance.ShowShieldEffect();
+            Debug.Log("Yeniden doğma: Shield efekt ikonu gösterildi.");
+        }
+        
         if (spriteRenderer != null)
         {
             Color originalColor = spriteRenderer.color;
@@ -652,10 +673,24 @@ public class PlayerHealth : MonoBehaviourPunCallbacks
         }
         else // SpriteRenderer yoksa sadece bekle
         {
-            yield return new WaitForSeconds(invincibilityDuration);
+            if (applyTintColor)
+            {
+                yield return new WaitForSeconds(invincibilityDuration);
+            }
+            else
+            {
+                yield return new WaitForSeconds(damageInvincibilityDuration);
+            }
         }
         
         isInvincible = false;
+        
+        // Dokunulmazlık bittiğinde shield efektini gizle
+        if (applyTintColor && EffectManager.Instance != null)
+        {
+            EffectManager.Instance.HideShieldEffect();
+            Debug.Log("Dokunulmazlık bitti: Shield efekt ikonu gizlendi.");
+        }
     }
 
     public int GetCurrentHealth()
@@ -701,6 +736,13 @@ public class PlayerHealth : MonoBehaviourPunCallbacks
 
             Debug.Log("Yenilenme koşulları sağlandı, yenilenme döngüsü başlıyor.");
 
+            // Healing efektini göster
+            if (EffectManager.Instance != null)
+            {
+                EffectManager.Instance.ShowHealingEffect();
+                Debug.Log("Healing efekt ikonu gösterildi.");
+            }
+
             while (Time.time - lastDamageTime >= regenerationDelay && currentHealth < playerStats.TotalMaxHealth)
             {
                 int healAmount = Mathf.Max(1, Mathf.RoundToInt(playerStats.TotalMaxHealth * (regenerationPercent / 100f)));
@@ -709,6 +751,13 @@ public class PlayerHealth : MonoBehaviourPunCallbacks
                 Heal(healAmount); 
 
                 yield return new WaitForSeconds(regenerationInterval);
+            }
+            
+            // Healing efektini gizle
+            if (EffectManager.Instance != null)
+            {
+                EffectManager.Instance.HideHealingEffect();
+                Debug.Log("Healing efekt ikonu gizlendi.");
             }
             
             Debug.Log("Yenilenme döngüsü bitti (Can doldu veya hasar alındı).");

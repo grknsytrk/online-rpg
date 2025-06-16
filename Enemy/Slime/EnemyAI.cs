@@ -39,7 +39,7 @@ public class EnemyAI : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
     
     [Header("Elite Settings")] // YENİ BAŞLIK
     [SerializeField] private float eliteScaleMultiplier = 1.2f;
-    [SerializeField] private int eliteDamageMultiplier = 2;
+    [SerializeField] private float eliteDamageMultiplier = 2.0f;
 
     [Header("Display Name")] // New Header for Display Name
     [SerializeField] private string displayName = "Slime"; // Default display name for the enemy
@@ -260,12 +260,16 @@ public class EnemyAI : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
         if (target == null) return false;
         Vector2 directionToTarget = (target.position - transform.position).normalized;
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
+        
+        // Sadece isTrigger = false olan collider'lara çarpacak şekilde raycast yap
         RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleLayerMask);
-        if (hit.collider != null)
+        
+        // Eğer çarpılan collider trigger ise, görüşü engellemez
+        if (hit.collider != null && !hit.collider.isTrigger)
         {
-            return false; // Engel var
+            return false; // Engel var (sadece solid collider'lar engel)
         }
-        return true; // Engel yok
+        return true; // Engel yok veya sadece trigger collider'lar var
     }
 
     // En yakın oyuncuyu bulur ve duruma göre state değiştirir
@@ -596,7 +600,7 @@ public class EnemyAI : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
             int finalDamage = damageAmount;
             if (this.IsElite) // ELİT KONTROLÜ
             {
-                finalDamage *= eliteDamageMultiplier;
+                finalDamage = Mathf.RoundToInt(finalDamage * eliteDamageMultiplier);
                 Debug.Log($"Elite enemy {gameObject.name} dealing bonus damage. Original: {damageAmount}, Final: {finalDamage}");
             }
             

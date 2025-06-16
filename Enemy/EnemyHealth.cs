@@ -15,8 +15,8 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     [SerializeField] private int xpValue = 10; // Öldürüldüğünde verilecek XP miktarı
 
     [Header("Elite Settings")] // YENİ BAŞLIK
-    [SerializeField] private int eliteHealthMultiplier = 3;
-    [SerializeField] private int eliteXpMultiplier = 2;
+    [SerializeField] private float eliteHealthMultiplier = 3.0f;
+    [SerializeField] private float eliteXpMultiplier = 2.0f;
 
     [Header("Effects")] // Added Header for VFX
     [SerializeField] private GameObject spawnVFXPrefab; // VFX to play on spawn
@@ -282,6 +282,10 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
                 {
                     pv.RPC("SpawnDeathVFX", RpcTarget.All);
                 }
+                
+                // Ölüm sesi çal (tüm clientlarda)
+                pv.RPC("PlayEnemyDeathSound", RpcTarget.All);
+                
                 // Objeyi yok et
                 PhotonNetwork.Destroy(gameObject);
             }
@@ -308,6 +312,15 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
+    private void PlayEnemyDeathSound()
+    {
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlaySound(SFXNames.EnemyDeath);
+        }
+    }
+
     public override void OnEnable()
     {
         base.OnEnable();
@@ -329,8 +342,8 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         this.IsElite = isElite;
         if (this.IsElite)
         {
-            startingHealth = baseMaxHealth * eliteHealthMultiplier;
-            xpValue = baseXpValue * eliteXpMultiplier; 
+            startingHealth = Mathf.RoundToInt(baseMaxHealth * eliteHealthMultiplier);
+            xpValue = Mathf.RoundToInt(baseXpValue * eliteXpMultiplier); 
             Debug.Log($"Enemy {gameObject.name} (ViewID: {pv.ViewID}) SetEliteStatus(true): MaxHealth={startingHealth}, Xp={xpValue}");
         }
         else

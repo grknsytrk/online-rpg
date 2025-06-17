@@ -1,12 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
-using Photon.Pun;
 
 /// <summary>
 /// Basit efekt icon gösterme sistemi - sadece manuel show/hide
 /// Süre takibi yok, mevcut sistemler icon'ları manuel kontrol eder
 /// </summary>
-public class EffectManager : MonoBehaviourPunCallbacks
+public class EffectManager : MonoBehaviour
 {
     [Header("Visual Settings")]
     [SerializeField] private bool debugMode = false; // Debug modu
@@ -19,30 +18,16 @@ public class EffectManager : MonoBehaviourPunCallbacks
     
     // Component referansları
     private PlayerHealthUI playerHealthUI;
-    private PhotonView pv;
     
     private void Awake()
     {
         // Singleton kontrolü
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        
-        // Component referanslarını al
-        pv = GetComponent<PhotonView>();
-        
-        // Sadece yerel oyuncu için çalışır
-        if (!pv.IsMine)
-        {
-            enabled = false;
-            return;
-        }
+        Instance = this;
     }
     
     private void Start()
